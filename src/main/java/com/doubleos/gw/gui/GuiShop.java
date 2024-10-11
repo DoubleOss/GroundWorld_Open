@@ -345,8 +345,10 @@ public class GuiShop extends GuiScreen
     @Override
     protected void actionPerformed(GuiButton button) throws IOException
     {
+        //버튼 클릭시 작동 로직
         if(button.id == 100)
         {
+            //구매버튼 클릭시 구매모드 변경
             itemData.shopMode = ShopData.eShop_Mode.BUY;
             for(GuiButton button1 : buttonList)
             {
@@ -361,6 +363,7 @@ public class GuiShop extends GuiScreen
         }
         else if (button.id == 101)
         {
+            //판매버튼 클릭시 판매모드 변경
             itemData.shopMode = ShopData.eShop_Mode.SELL;
             for(GuiButton button1 : buttonList)
             {
@@ -375,8 +378,9 @@ public class GuiShop extends GuiScreen
         }
         else if (button instanceof BtnShop)
         {
+            //물품 클릭시 로직
             ShopItemData data = itemData.itemDataList.get(button.id);
-            if (itemData.shopMode.equals(ShopData.eShop_Mode.BUY)) // 구매
+            if (itemData.shopMode.equals(ShopData.eShop_Mode.BUY)) // 구매모드 체크
             {
                 int stackCount = 0;
 
@@ -385,7 +389,7 @@ public class GuiShop extends GuiScreen
                     if (stack.getItem().equals(data.requestBuyItem.getItem()))
                         stackCount += stack.getCount();
                 }
-                if(data.dayBuyCurrentLimitCount > 0 && Keyboard.isKeyDown(42))
+                if(data.dayBuyCurrentLimitCount > 0 && Keyboard.isKeyDown(42)) // 쉬프트 클릭시 64개 구매 아닐시 1개 구매
                 {
                     if(data.dayBuyCurrentLimitCount >= 64)
                     {
@@ -396,11 +400,14 @@ public class GuiShop extends GuiScreen
                                 mc.player.sendMessage(new TextComponentString( "§l[地上世界] §f인벤토리에 빈 공간이 부족합니다"));
                                 return;
                             }
+                            //서버측 플레이어 인벤토리에 있는 요구 아이템 제거
                             Packet.networkWrapper.sendToServer(new SPacketItemRemove(data.requestBuyItem.copy(), 64));
                             ItemStack fullStack = data.shopItem.copy();
                             fullStack.setCount(64);
+                            //서버측 플레이어에게 구매 아이템 지급
                             Packet.networkWrapper.sendToServer(new SPacketItemAdd(fullStack.copy()));
                             //data.dayBuyCurrentLimitCount -= 64;
+                            //서버측 상점 데이터에있는 물품 수량 감소 로직
                             Packet.networkWrapper.sendToServer(new SPacketShopDataItemRemove(data.shopItemId, -1*64, shopName));
 
                             mc.player.sendMessage(new TextComponentString("§l[地上世界] §f"+data.shopItem.getDisplayName() +" 아이템을 64개 구매 하였습니다."));
@@ -430,11 +437,14 @@ public class GuiShop extends GuiScreen
                             mc.player.sendMessage(new TextComponentString( "§l[地上世界] §f인벤토리에 빈 공간이 부족합니다"));
                             return;
                         }
+                        //서버측 플레이어 인벤토리에 있는 요구 아이템 제거
                         Packet.networkWrapper.sendToServer(new SPacketItemRemove(data.requestBuyItem.copy(), data.requestItemBuyAmount));
                         ItemStack fullStack = data.shopItem.copy();
                         fullStack.setCount(1);
+                        //서버측 플레이어에게 구매 아이템 지급
                         Packet.networkWrapper.sendToServer(new SPacketItemAdd(fullStack.copy()));
                         //data.dayBuyCurrentLimitCount -= 1;
+                        //서버측 상점 데이터에있는 물품 수량 감소 로직
                         Packet.networkWrapper.sendToServer(new SPacketShopDataItemRemove(data.shopItemId, -1, shopName));
                         mc.player.sendMessage(new TextComponentString("§l[地上世界] §f"+data.shopItem.getDisplayName() +" 아이템을 1개 구매 하였습니다."));
                     }
@@ -447,7 +457,7 @@ public class GuiShop extends GuiScreen
 
                 Packet.networkWrapper.sendToServer(new SPacketDefaultShopDataReload(shopName));
             }
-            else //판매
+            else //판매 모드시
             {
                 int stackCount = 0;
                 for (ItemStack stack : mc.player.inventory.mainInventory)

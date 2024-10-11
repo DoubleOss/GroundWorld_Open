@@ -997,6 +997,7 @@ public class GuiPhone extends GuiScreen
                 {
                     BtnUrgent btn = (BtnUrgent) button;
 
+                    //클릭한 요소가 메일 리스트 오브젝트 일경우
 
                     if(!btn.m_BtnName.equals("뒤로가기") && !btn.m_BtnName.equals("슬라이더") && !btn.m_BtnName.equals("수령"))
                     {
@@ -1007,13 +1008,17 @@ public class GuiPhone extends GuiScreen
                         int afterY = scaleHeight/2 - 30;
 
                         boolean active = (btn.y >= afterY) ? true : false;
+                        // 화면밖에 있는 오브젝트 일경우 ( gl_scissor 로 인한 안보이는 요소 클릭된 경우 체크 )
                         if(active)
                         {
+                            //안 읽은 메일 경우 readActive == false 읽었을 경우 true
                             if(!btn.m_data.m_readActive)
                             {
                                 btn.m_data.m_readActive = true;
                                 Packet.networkWrapper.sendToServer(new SPacketUrgentRead(btn.m_data.m_mailId, btn.m_data.m_readActive));
                             }
+                            //세부 메일내용 Gui 열렸는지 안열렸는지 체크하는 부분
+                            //위에 덧그리는 부분이기 때문에 뒤에 버튼은 살아있는 상태이기에 간섭 방지용
                             if(!m_openTextBox)
                             {
                                 m_scaleAni = 0f;
@@ -1027,6 +1032,7 @@ public class GuiPhone extends GuiScreen
                     }
                     if (btn.m_BtnName.equals("뒤로가기"))
                     {
+                        //뒤로가기 버튼 클릭시 로직
                         if(m_openTextBox)
                         {
                             variable.m_phoneGuiStatus = Variable.PHONE_GUI_VIEW_STATUS.URGENTTEXT;
@@ -1041,12 +1047,15 @@ public class GuiPhone extends GuiScreen
                     }
                     if(m_openTextBox)
                     {
-
+                        
                         if (btn.m_BtnName.equals("수령"))
                         {
+                            //세부 메일 내용에서 수령하기가 정상적으로 작동했을 경우
                             if(m_selectUrgentBtn.m_giveActive)
                             {
+                                //1회성 애니메이션 작동 방지 변수
                                 m_scaleAnimation = true;
+
                             }
                             else
                             {
@@ -1058,6 +1067,7 @@ public class GuiPhone extends GuiScreen
                                 itemCount += ! m_selectUrgentBtn.m_data.m_stack4.getItem().equals(Items.AIR) ? 1 : 0;
                                 itemCount += ! m_selectUrgentBtn.m_data.m_stack5.getItem().equals(Items.AIR) ? 1 : 0;
 
+                                // 아이템 개수 파악 후 인벤토리 아이템 빈공간 체크
                                 if(itemCount <= airSlot)
                                 {
                                     //m_selectUrgentBtn.m_data.give();
@@ -1065,6 +1075,7 @@ public class GuiPhone extends GuiScreen
                                     m_selectUrgentBtn.m_data.m_receiveActive = true;
 
                                     m_selectUrgentBtn.m_giveActive = true;
+                                    //아이템 정상적으로 수령시 서버단 메일데이터에도 반영
                                     Packet.networkWrapper.sendToServer(new SPacketMailDataGive(m_selectUrgentBtn.m_data.m_mailId, m_selectUrgentBtn.m_data.m_receiveActive));
                                 }
                                 else
@@ -1856,7 +1867,9 @@ public class GuiPhone extends GuiScreen
                                 button.enabled = true;
                                 button.drawButton(mc, mouseX, mouseY, partialTicks);
 
+                                //갤러리 리스트에서 단서 제목 표기
                                 String title = btn.m_data.m_dataNumber + "번 단서 - " + btn.m_data.m_Title;
+                                //갤러리 리스트에서 해금 안된 단서일 경우 제목 모자이크
                                 if(btn.m_data.m_lock)
                                     title = title.length() <= 27 ? title : title.substring(0, 27);
                                 else
@@ -1919,6 +1932,7 @@ public class GuiPhone extends GuiScreen
 
                 float scaleAni = 1f;
                 float alpha = 0f;
+                //애니메이션 재생중일 경우 작동하는 구문
                 if(m_scaleAnimation)
                 {
                     if(m_scaleAni < 1f)
@@ -1944,17 +1958,18 @@ public class GuiPhone extends GuiScreen
                 mc.renderEngine.bindTexture(new ResourceLocation(GroundWorld.RESOURCEID, "textures\\gui\\phone\\gall\\btn\\_.png"));
                 Render.drawTexture (scaleWidth/2 - semiColumn_Width/2 + 74, scaleHeight/2 - semiColumn_Height/2 - 40, semiColumn_Width, semiColumn_Height, 0, 0 ,1, 1, 1, 1);
 
-
-
                 mc.renderEngine.bindTexture(new ResourceLocation(GroundWorld.RESOURCEID, "textures\\gui\\phone\\urgenttext\\str\\긴급 문자.png"));
                 Render.drawTexture (scaleWidth/2 - gall_Str_Width/2 - 55, scaleHeight/2 - gall_Str_Height/2 - 41, gall_Str_Width, gall_Str_Height, 0, 0 ,1, 1, 1, 1);
 
+                //메일창을 클릭 했을 경우
                 if(m_openTextBox)
                 {
-                    if(m_selectUrgentBtn != null)
+
+                    if(m_selectUrgentBtn != null) // null 체크
                     {
+                        //서버측에서 넘어온 메일 데이터에서 이미 아이템 수령 완료일 경우 
                         if(m_selectUrgentBtn.m_data.m_receiveActive)
-                            m_selectUrgentBtn.m_giveActive = true;
+                            m_selectUrgentBtn.m_giveActive = true; // 클라이언트 측 데이터 싱크
                     }
 
 
@@ -1974,6 +1989,7 @@ public class GuiPhone extends GuiScreen
                     int fontdate = fontRenderer.getStringWidth(title);
                     Render.drawStringScaleResizeByLeftWidth(date, scaleWidth/2 + 45, scaleHeight/2 + 5, 4, 0.6f, 1, false);
 
+                    //서버측에서 넘어오는 색코드 변환
                     String text =  m_selectUrgentBtn.m_data.m_text.replaceAll("&", "§");
                     ArrayList<String> strList = new ArrayList<>();
                     int textCount = 20;
@@ -2013,6 +2029,8 @@ public class GuiPhone extends GuiScreen
                         Render.drawStringScaleResizeByLeftWidth(descriptions[i], scaleWidth/2 - 77, scaleHeight/2 + 20 + (i * 7), 5, 0.65f, 1, false);
 
                     }
+                    
+                    //GUI에 아이템 배치하는 로직
 
                     ItemStack stack1 = m_selectUrgentBtn.m_data.m_stack1.copy();
                     ItemStack stack2 = m_selectUrgentBtn.m_data.m_stack2.copy();
@@ -2031,7 +2049,7 @@ public class GuiPhone extends GuiScreen
                     RenderHelper.disableStandardItemLighting();
 
 
-
+                    // 아이템 수령시 위에 덧그려지는 이미지
                     if(m_selectUrgentBtn.m_giveActive)
                     {
                         float blackWidth = 85f/3f;
@@ -2084,6 +2102,8 @@ public class GuiPhone extends GuiScreen
                 else
                 {
 
+                    //메일 리스트를 Render 하는 부분
+
                     float line_Str_Width = 536f/3f;
                     float line_Str_Height = 2f/3f;
 
@@ -2105,6 +2125,7 @@ public class GuiPhone extends GuiScreen
                         }
                     }
 
+                    //스크롤을 위한 glScissor 사용
                     GL11.glPushMatrix();
                     {
                         int scaleFactor = scaled.getScaleFactor(); // 스케일 팩터 값
@@ -2282,6 +2303,7 @@ public class GuiPhone extends GuiScreen
                 }
 
             }
+            //갤러리 리스트에서 클릭 했을 경우
             if(m_clueOpenActive)
             {
                 mc.renderEngine.bindTexture(new ResourceLocation(GroundWorld.RESOURCEID, "textures\\hud\\hud\\black.png"));

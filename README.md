@@ -28,7 +28,6 @@
 > * ### 마인크래프트 내에서 동영상 재생 기능 추가
 > * #### 활용예시
 > ![2024-10-11 22;27;03](https://github.com/user-attachments/assets/8f02df60-ec38-4bb1-bf8b-69bd4c773fb9)
-
 > ### 동영상 FFmpeg 라이브러리 사용 코드
 > ### Gui 동영상 코드
 
@@ -36,7 +35,7 @@
 > * ### 마인크래프트 자체 Sound 재생 시스템의 오류로 인한 문제 해결
 > * ### 높은 Sound 반복 재생시 HashBiMap에서 중복 값 삽입 문제
 > * ### Client 에서만 처리되도록 ClientSide > TinySound Init
-> * 
+> 
 > ### TinySound Init 코드
 > ### TinySound Lib 사용 코드
 
@@ -44,18 +43,29 @@
 ### 3. HUD 시스템 
 > * ### 플레이어의 실시간 스텟 [ 체력, 체온, 허기, 수분 ] 실시간 표기 
 > * ### 배터리, 통화 시스템, 타이머 연동
+> * ### OpenGL을 이용한 2D Texture Render
+> * ### Raycast 플레이어 바라보는 오브젝트 검출 후 연출
 > ![2024-10-11 21;12;30](https://github.com/user-attachments/assets/06cc838f-d1df-4141-a809-9b934674b496)  ![2024-10-11 21;26;27](https://github.com/user-attachments/assets/a7e91948-b970-460b-97bc-245932e768b4)
+> * * *
+> #### RayCast 연산, 유효 오브젝트시 HUD 메세지 검출 
+> ![crosshair](https://github.com/user-attachments/assets/7b297c3a-a9af-48ea-9e31-0a563a89a0bf)
+> * * *
 > ### HUD Render 코드 링크
+> ### Raycast 검출 코드 링크
+> ### OpenGL drawTexture 함수 링크
+ 
 
 
 
 ### 4. 상점 시스템
 > * ### 상점 판매 아이템 수량 제한 스크롤 기능, 수량에 따른 표기 변경
 > * ### 구매 판매 탭 표기 및 가격 변동
+> * ### OpenGL SCISSOR 기능을 이용한 Scroll Bar 구현
 > ![2024-10-11 21;14;31](https://github.com/user-attachments/assets/68676eba-4e58-4db6-9089-8e6524472dbd)
 > ### 상점 Gui 코드 링크
 > ### 상점 데이터 코드 링크 
 > ### 상점 Server와 유저간 데이터 Sync 코드 링크
+> ### OpenGL SCISSOR Scroll Bar 코드
 
 * * *
 
@@ -69,7 +79,6 @@
 > * * *
 > #### 통화 시스템 영상
 > ![2024-10-11 22;07;57](https://github.com/user-attachments/assets/bdd4309e-4d5d-451a-a9f0-43f0310789dc)
-> ### 통화 시스템 코드
 > * * *
 > #### 긴급 공지 시스템 영상
 > ![2024-10-11 22;55;26](https://github.com/user-attachments/assets/b2ed55bd-b32d-40b6-b4c4-1242b8888f7e)

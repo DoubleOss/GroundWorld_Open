@@ -227,14 +227,17 @@ public class ClientProxy extends CommonProxy
     }
 
     String rayCastChargeType = "";
+    //RayCast 연산
     @SubscribeEvent
     public void onBlockDraw(DrawBlockHighlightEvent event)
     {
         Variable variable = Variable.Instance();
         if (event.getTarget().typeOfHit.equals(RayTraceResult.Type.BLOCK))
         {
+            //검출된 타겟이 Block 일 경우
             BlockPos viewPos = event.getTarget().getBlockPos();
             boolean search = false;
+            //주유기, 충전기 리스트에서 해당 좌표값 데이터를 서치
             for(ChargeData data : variable.m_chargeDataList)
             {
                 if(viewPos.equals(data.getPos()))
@@ -518,12 +521,13 @@ public class ClientProxy extends CommonProxy
         }
     }
     public static Map<String, Music> musicMap = new HashMap<>();
-    @Override
-    public void preInit(FMLPreInitializationEvent event)
+
+    void initTinySound()
     {
-        OBJLoader.INSTANCE.addDomain(Reference.MODID);
+        // TinySound 초기화
         TinySound.init();
 
+        //이후 클라이언트에서 .wav 소리 파일을 읽어서 등록
         File musicFolder = new File("./music/");
         musicFolder.mkdirs();
         for (File file : musicFolder.listFiles(new FilenameFilter() {
@@ -536,8 +540,14 @@ public class ClientProxy extends CommonProxy
                 musicMap.put(fileName.substring(0, fileName.lastIndexOf(".")), TinySound.loadMusic(file));
             }
 
-            System.out.println(musicMap.toString());
         }
+    }
+    @Override
+    public void preInit(FMLPreInitializationEvent event)
+    {
+        OBJLoader.INSTANCE.addDomain(Reference.MODID);
+
+        initTinySound();
 
         File modFolder = new File(Minecraft.getMinecraft().mcDataDir, "resource/gwr");
         modFolder.mkdirs();
@@ -603,7 +613,10 @@ public class ClientProxy extends CommonProxy
     }
     public void initFfmpeg()
     {
+        //필수 파일 FFmpeg 파일 없을 시 자동으로 게임 로딩구간에서 다운로드
+        //후 클라이언트 폴더에서 설치
         File ffmpegDir = new File(minecraft.mcDataDir + "\\ffmpeg\\");
+
         if (!ffmpegDir.exists())
         {
             File ffmpegZip = new File(minecraft.mcDataDir + "\\ffmpeg.zip");
@@ -1180,6 +1193,7 @@ public class ClientProxy extends CommonProxy
 
         if (event.getType().equals(RenderGameOverlayEvent.ElementType.CROSSHAIRS))
         {
+            //레이케스트 검출 결과가 있을 경우
             if(! rayCastChargeType.equals(""))
             {
                 event.setCanceled(true);
@@ -1205,9 +1219,9 @@ public class ClientProxy extends CommonProxy
 
             if(variable.m_cinematicAniState.size() == 0 && variable.m_animationStateList.size() == 0 && variable.m_animationDayStart.size() == 0)
             {
+                //스마트워치 Render 함수
                 phone(partialTick);
-
-                if(variable.m_changeMod)//변장도구
+                if(variable.m_changeMod)//변장도구 착용 여부
                     changeHud(partialTick);
             }
 
@@ -1550,6 +1564,7 @@ public class ClientProxy extends CommonProxy
         float randomValue = -1 + (1 - (-1)) * random.nextFloat();
         float randomValue2 = -1 + (1 - (-1)) * random.nextFloat();
 
+        //드릴 아이템 사용시 화면 떨림 구현 로직
         if(GroundWorld.instance.m_shake)
         {
             minecraft.player.rotationPitch = minecraft.player.rotationPitch + (randomValue* 0.08f);
@@ -1559,6 +1574,8 @@ public class ClientProxy extends CommonProxy
         float background_Width = 351/3f;
         float background_Height = 369/3f;
 
+
+        //플레이어 스마트폰 상태가 연결이 되어 통화 상태 일때 Render 작업
         if(variable.m_phoneStatus.equals(Variable.WATCH_STATUS.CONNETING))
         {
             minecraft.renderEngine.bindTexture(new ResourceLocation(GroundWorld.RESOURCEID, "textures\\hud\\phone\\핸드폰_norch.png"));
@@ -1567,12 +1584,14 @@ public class ClientProxy extends CommonProxy
         }
         else if (variable.m_phoneStatus.equals(Variable.WATCH_STATUS.CALL_RECIVER ) || variable.m_phoneStatus.equals(Variable.WATCH_STATUS.IDLE) || variable.m_phoneStatus.equals(Variable.WATCH_STATUS.CALL_SENDER )  )
         {
+            // 플레이어 스마트폰 상태가 연결중이거나 발신/수신 상태일 경우 상태
             minecraft.renderEngine.bindTexture(new ResourceLocation(GroundWorld.RESOURCEID, "textures\\hud\\phone\\핸드폰.png"));
             Render.drawTexture(scaleWidth - background_Width - 4, scaleHeight - background_Height - 1, background_Width, background_Height, 0, 0, 1, 1, 5, 1);
         }
         if(variable.m_phoneStatus.equals(Variable.WATCH_STATUS.CALL_RECIVER))
         {
 
+            //수신전화가 왔을 때
             float callingHead_Width = 106f / 3f;
             float callingHead_Height = 105f / 3f;
 
@@ -1602,12 +1621,14 @@ public class ClientProxy extends CommonProxy
         else
         {
 
+            // 수신전화 상태가 아닐 때
             float callStr_Width = 65f/3f;
             float callStr_Height = 12f/3f;
 
             String callingPlayer = variable.getMemberIdToKoreaNickName(variable.m_callingPlayer.name());
             if(variable.m_phoneStatus.equals(Variable.WATCH_STATUS.CALL_SENDER))
             {
+                // 연결중일 경우
                 String text = callingPlayer + " 연결중...";
                 Render.drawStringScaleResizeByMiddleWidth(text, scaleWidth - 65,  scaleHeight - 109, 10, 0.65f, -1);
                 float callingStr_Width = 38/3f;
@@ -1623,7 +1644,7 @@ public class ClientProxy extends CommonProxy
             }
             else if (variable.m_phoneStatus.equals(Variable.WATCH_STATUS.CONNETING))
             {
-
+                // 연결이 되었을 경우 작업 
                 String text = callingPlayer + " 통화중...";
                 Render.drawStringScaleResizeByMiddleWidth(text, scaleWidth - 65,  scaleHeight - 109, 10, 0.65f, 1);
 
@@ -1641,6 +1662,7 @@ public class ClientProxy extends CommonProxy
 
             if(!variable.isWatchTimerView)
             {
+                //스마트 워치 에서 타이머 숫자를 그리는 부분
                 float numberImageSize = 80f/3f;
 
                 int sec = variable.m_gameSec;
@@ -1702,7 +1724,7 @@ public class ClientProxy extends CommonProxy
             }
             else
             {
-
+                //타이머 상태가 아닌 원형 ProgressBar 상태에 있을 경우
 
                 float stats_background_width = 222f/3f;
                 float stats_background_height = 222f/3f;
@@ -1837,9 +1859,6 @@ public class ClientProxy extends CommonProxy
                 GlStateManager.popMatrix();
 
 
-
-
-
                 float stat_icon_width = 14f/3f;
                 float stat_icon_height = 49f/3f;
 
@@ -1865,9 +1884,7 @@ public class ClientProxy extends CommonProxy
                 minecraft.renderEngine.bindTexture(new ResourceLocation(GroundWorld.RESOURCEID, "textures\\hud\\ui\\stats\\sec_pin.png"));
                 Render.drawRotateTexture2(-90 + (360f - (360f * timerPer)), scaleWidth - secPinWidth - 21.5f, scaleHeight - secPinHeight - 52f, secPinWidth, secPinHeight, 0, 0, 1, 1, 5, 1);
 
-
-
-
+                
                 float timerMiddle_width = 18f/3f;
                 float timerMiddle_height = 18f/3f;
 
@@ -1883,6 +1900,7 @@ public class ClientProxy extends CommonProxy
 
         String battery = "green";
 
+        //배터리 게이지를 표기해주는 부분 배터리 퍼센트에 따라 색깔 변경
         if(variable.currentBattery >= 70)
             battery = "green";
 

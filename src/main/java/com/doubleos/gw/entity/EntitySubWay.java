@@ -29,6 +29,7 @@ public class EntitySubWay extends EntityCreature implements IAnimatable {
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event)
     {
 
+        //모델링 애니메이션 상태에 따른 모션
         if (variable.m_subWayStatus.equals(Variable.eSubWayStatus.IDLE))
         {
             event.getController().setAnimation(new AnimationBuilder().addAnimation("idle", true));
@@ -54,6 +55,7 @@ public class EntitySubWay extends EntityCreature implements IAnimatable {
 
             double currentSpeed = 1.0d;
 
+            //지하철 움직임 로직
             vectorDirX = 0;
             vectorDirZ = variable.m_subWaySpeed * -1 * (0.812f * 0.019f * 1.0F);
 

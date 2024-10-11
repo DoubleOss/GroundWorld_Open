@@ -50,6 +50,8 @@ public class VideoGui extends GuiScreen {
 
 	
 	private float[] soundLevelArr;
+
+	//영상 재생시 게임 사운드 카테고리 제어용
 	private static SoundCategory[] soundCategoryArr = { SoundCategory.MASTER, SoundCategory.MUSIC,
 			SoundCategory.RECORDS, SoundCategory.WEATHER, SoundCategory.BLOCKS, SoundCategory.HOSTILE,
 			SoundCategory.NEUTRAL, SoundCategory.PLAYERS, SoundCategory.AMBIENT, SoundCategory.VOICE };
@@ -60,6 +62,9 @@ public class VideoGui extends GuiScreen {
 	
 	public VideoGui(String videoName, float volume, boolean skippable) throws Exception {
 		Minecraft mc = Minecraft.getMinecraft();
+
+		// 영상 재생시 FFmpeg 구성 파일 정상적으로 존재하는지 체크
+		// 이후 재생을 위한 영상 파일 존재하는지 확인
 		File file = new File(mc.mcDataDir, "movie/" + videoName);
 		if(!file.exists()) {
 			mc.player.sendMessage(new TextComponentString(TextFormatting.RED + "영상을 재생하지 못했습니다. (" + videoName + " 파일을 찾을 수 없습니다.)"));
@@ -91,13 +96,19 @@ public class VideoGui extends GuiScreen {
 		started = false;
 		delay = 0;
 	}
-	
+
+	/*
+	생성자가 먼저 호출 되면서 이후 InitGui 함수가 호출
+	 */
 	@Override
 	public void initGui() {
 
+		// initGui 호출시 그래픽 연산을 줄이기 위해 render 거리를 0으로 변경
+		// 이후 영상 프레임과 게임 Fps를 맞추기 위해 최대 Fps를 영상과 똑같이 변경
+		// 영상소리만 듣기 위해 모든 사운드 Level 0
+		
 		volume_tick = 0;
-
-
+		
 		renderDistance = mc.gameSettings.renderDistanceChunks;
 		renderFps = mc.gameSettings.limitFramerate;
 		
@@ -113,7 +124,7 @@ public class VideoGui extends GuiScreen {
 		videoWidth = mediaPlayer.getWidth();
 		videoHeight = mediaPlayer.getHeight();
 
-		Mouse.setGrabbed(false);
+		Mouse.setGrabbed(false); //마우스 포인터 끄기
 
 	}
 
@@ -146,21 +157,29 @@ public class VideoGui extends GuiScreen {
 	public void drawScreen(int mouseX, int mouseY, float f)
 	{
 
+		//Background 배경 검은색으로 변경
 		drawRect(0, 0, width, height, 0xFF000000);
+		//영상 프레임과 게임 프레임을 일치화
 		mc.gameSettings.limitFramerate = (int)mediaPlayer.videoFrameRate;
 		if(started) {
 			if(texture == 0) {
+				// OpenGl 텍스쳐 생성
 				texture = GL11.glGenTextures();
+				// 텍스쳐 Bind
 				GL11.glBindTexture(GL11.GL_TEXTURE_2D, texture);
+				// 텍스쳐 화면 크기 보정
 				GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_S, GL12.GL_CLAMP_TO_EDGE);
 				GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_T, GL12.GL_CLAMP_TO_EDGE);
 				GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_LINEAR);
 				GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_LINEAR);
 				try {
+					// 텍스쳐를 연산함 재생중인 영상의 프레임을 가져와 텍스쳐 작업
 					GL11.glTexImage2D(GL11.GL_TEXTURE_2D, 0, GL11.GL_RGBA, videoWidth, videoHeight, 0, GL11.GL_RGBA, GL11.GL_UNSIGNED_BYTE, mediaPlayer.getRenderBuffer());
 				} catch(Exception e) { }
+				// 텍스쳐 해제
 				GL11.glBindTexture(GL11.GL_TEXTURE_2D, 0);
 			} else {
+				//이후 실시간으로 재생되는 영상의 텍스쳐를 업데이트
 				GlStateManager.pushMatrix();
 				GlStateManager.disableLighting();
 				GL11.glBindTexture(GL11.GL_TEXTURE_2D, texture);

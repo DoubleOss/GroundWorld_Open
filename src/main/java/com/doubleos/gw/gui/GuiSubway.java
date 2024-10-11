@@ -67,6 +67,7 @@ public class GuiSubway extends GuiScreen
     {
         if(button.id == 0)
         {
+            //지하철 엔티티 load
             mc.player.sendChatMessage("/지하철소환 " + startPos + " " + endPos);
             mc.player.closeScreen();
         }

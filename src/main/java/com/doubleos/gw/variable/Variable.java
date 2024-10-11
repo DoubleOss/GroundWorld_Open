@@ -388,21 +388,26 @@ public class Variable
                 new ItemStack(Items.IRON_INGOT, 1), 15,
                 new ItemStack(Items.IRON_INGOT), 5, 60));
 
+        //스팸
         defaultItemDataList.add(new ShopItemData(defaultItemDataId++, GroundItemStack.SPAM,
                 new ItemStack(Items.IRON_INGOT, 1), 32,
                 new ItemStack(Items.IRON_INGOT), 20, 60));
 
+        //천
         defaultItemDataList.add(new ShopItemData(defaultItemDataId++,GroundItemStack.CLOTH,
                 new ItemStack(ItemBlock.getItemFromBlock(Blocks.REDSTONE_BLOCK)), 1,
                 new ItemStack(Items.REDSTONE), 5, 140));
 
+        //비타민
         defaultItemDataList.add(new ShopItemData(defaultItemDataId++, GroundItemStack.VITAMIN,
                 new ItemStack(Items.GOLD_INGOT), 18,
                 new ItemStack(Items.GOLD_INGOT), 9, 36));
+        //다이아몬드
         defaultItemDataList.add(new ShopItemData(defaultItemDataId++, new ItemStack(Items.DIAMOND),
                 new ItemStack(Blocks.COBBLESTONE), 200,
                 new ItemStack(Items.GOLD_INGOT), 9, 100));
 
+        //나무
         defaultItemDataList.add(new ShopItemData(defaultItemDataId++, new ItemStack(ItemBlock.getItemFromBlock(Blocks.LOG), 1),
                 new ItemStack(Items.GOLD_INGOT), 5,
                 new ItemStack(Items.GOLD_INGOT), 2, 80));
