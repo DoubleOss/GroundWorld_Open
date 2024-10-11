@@ -1,0 +1,25 @@
+{
+	"variants":
+	{
+		"facing=north":
+		{
+			"model": "groundworld:corelamp",
+			"y": 180
+		},
+		"facing=east":
+		{
+			"model": "groundworld:corelamp",
+			"y": 270
+		},
+		"facing=south":
+		{
+			"model": "groundworld:corelamp",
+			"y": 0
+		},
+		"facing=west":
+		{
+			"model": "groundworld:corelamp",
+			"y": 90
+		}
+	}
+}

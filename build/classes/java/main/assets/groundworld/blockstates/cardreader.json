@@ -1,0 +1,30 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "groundworld:cardreader"
+  },
+  "variants":
+  {
+    "normal": [{ "y": 0 }, { "y": 90 }, { "y": 180 }, { "y": 270 }],
+    "facing=north":
+    {
+      "model": "groundworld:cardreader",
+      "y": 0
+    },
+    "facing=east":
+    {
+      "model": "groundworld:cardreader",
+      "y": 90
+    },
+    "facing=south":
+    {
+      "model": "groundworld:cardreader",
+      "y": 180
+    },
+    "facing=west":
+    {
+      "model": "groundworld:cardreader",
+      "y": 270
+    }
+  }
+}

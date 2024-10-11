@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    " A ",
+    " B ",
+    "AAA"
+  ],
+  "key":
+  {
+    "A":
+    {
+      "item": "groundworld:mixgold",
+      "count": 1
+    },
+    "B":
+    {
+      "item": "groundworld:robot_core",
+      "count": 1
+    }
+  },
+  "result":
+  {
+    "item": "groundworld:corelamp_off",
+    "count": 1
+  }
+}

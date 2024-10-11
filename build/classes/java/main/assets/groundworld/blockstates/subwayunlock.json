@@ -1,0 +1,30 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "groundworld:subwayunlock"
+  },
+  "variants":
+  {
+    "normal": [{ "y": 0 }, { "y": 90 }, { "y": 180 }, { "y": 270 }],
+    "facing=north":
+    {
+      "model": "groundworld:subwayunlock",
+      "y": 0
+    },
+    "facing=east":
+    {
+      "model": "groundworld:subwayunlock",
+      "y": 90
+    },
+    "facing=south":
+    {
+      "model": "groundworld:subwayunlock",
+      "y": 180
+    },
+    "facing=west":
+    {
+      "model": "groundworld:subwayunlock",
+      "y": 270
+    }
+  }
+}

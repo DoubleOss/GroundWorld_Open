@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "AAA",
+    "A A",
+    "AAA"
+  ],
+  "key":
+  {
+    "A":
+    {
+      "item": "groundworld:usbori",
+      "count": 1
+    }
+
+  },
+  "result":
+  {
+    "item": "groundworld:usbvax",
+    "count": 1
+  }
+}

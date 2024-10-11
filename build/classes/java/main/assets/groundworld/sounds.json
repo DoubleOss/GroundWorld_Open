@@ -1,0 +1,243 @@
+{
+    "bloodstick": {
+        "category": "records",
+        "subtitle": "player.bloodstick",
+        "sounds": [
+            {
+                "name": "groundworld:songs/bloodstick",
+                "stream": true
+            }
+        ]
+    },
+    "boom": {
+        "category": "records",
+        "subtitle": "player.boom",
+        "sounds": [
+            {
+                "name": "groundworld:songs/boom",
+                "stream": true
+            }
+        ]
+    },
+    "call_disconnet": {
+        "category": "records",
+        "subtitle": "player.call_disconnet",
+        "sounds": [
+            {
+                "name": "groundworld:songs/call_disconnet",
+                "stream": true
+            }
+        ]
+    },
+    "cardreader": {
+        "category": "records",
+        "subtitle": "player.cardreader",
+        "sounds": [
+            {
+                "name": "groundworld:songs/cardreader",
+                "stream": true
+            }
+        ]
+    },
+    "day_sfx": {
+        "category": "records",
+        "subtitle": "player.day_sfx",
+        "sounds": [
+            {
+                "name": "groundworld:songs/day_sfx",
+                "stream": true
+            }
+        ]
+    },
+    "door": {
+        "category": "records",
+        "subtitle": "player.door",
+        "sounds": [
+            {
+                "name": "groundworld:songs/door",
+                "stream": true
+            }
+        ]
+    },
+    "door_open": {
+        "category": "records",
+        "subtitle": "player.door_open",
+        "sounds": [
+            {
+                "name": "groundworld:songs/door_open",
+                "stream": true
+            }
+        ]
+    },
+    "drink_water": {
+        "category": "records",
+        "subtitle": "player.drink_water",
+        "sounds": [
+            {
+                "name": "groundworld:songs/drink_water",
+                "stream": true
+            }
+        ]
+    },
+    "eat_other": {
+        "category": "records",
+        "subtitle": "player.eat_other",
+        "sounds": [
+            {
+                "name": "groundworld:songs/eat_other",
+                "stream": true
+            }
+        ]
+    },
+    "elecharge": {
+        "category": "records",
+        "subtitle": "player.elecharge",
+        "sounds": [
+            {
+                "name": "groundworld:songs/elecharge",
+                "stream": true
+            }
+        ]
+    },
+    "ele_kiosk": {
+        "category": "records",
+        "subtitle": "player.ele_kiosk",
+        "sounds": [
+            {
+                "name": "groundworld:songs/ele_kiosk",
+                "stream": true
+            }
+        ]
+    },
+    "hammer": {
+        "category": "records",
+        "subtitle": "player.hammer",
+        "sounds": [
+            {
+                "name": "groundworld:songs/hammer",
+                "stream": true
+            }
+        ]
+    },
+    "hardtack": {
+        "category": "records",
+        "subtitle": "player.hardtack",
+        "sounds": [
+            {
+                "name": "groundworld:songs/hardtack",
+                "stream": true
+            }
+        ]
+    },
+    "noti": {
+        "category": "records",
+        "subtitle": "player.noti",
+        "sounds": [
+            {
+                "name": "groundworld:songs/noti",
+                "stream": true
+            }
+        ]
+    },
+    "oilcharge": {
+        "category": "records",
+        "subtitle": "player.oilcharge",
+        "sounds": [
+            {
+                "name": "groundworld:songs/oilcharge",
+                "stream": true
+            }
+        ]
+    },
+    "oil_kiosk": {
+        "category": "records",
+        "subtitle": "player.oil_kiosk",
+        "sounds": [
+            {
+                "name": "groundworld:songs/oil_kiosk",
+                "stream": true
+            }
+        ]
+    },
+    "phonetouch": {
+        "category": "records",
+        "subtitle": "player.phonetouch",
+        "sounds": [
+            {
+                "name": "groundworld:songs/phonetouch",
+                "stream": true
+            }
+        ]
+    },
+    "phone_bell": {
+        "category": "records",
+        "subtitle": "player.phone_bell",
+        "sounds": [
+            {
+                "name": "groundworld:songs/phone_bell",
+                "stream": true
+            }
+        ]
+    },
+    "robot_ambient": {
+        "category": "records",
+        "subtitle": "player.robot_ambient",
+        "sounds": [
+            {
+                "name": "groundworld:songs/robot_ambient",
+                "stream": true
+            }
+        ]
+    },
+    "robot_call": {
+        "category": "records",
+        "subtitle": "player.robot_call",
+        "sounds": [
+            {
+                "name": "groundworld:songs/robot_call",
+                "stream": true
+            }
+        ]
+    },
+    "robot_death": {
+        "category": "records",
+        "subtitle": "player.robot_death",
+        "sounds": [
+            {
+                "name": "groundworld:songs/robot_death",
+                "stream": true
+            }
+        ]
+    },
+    "spanner": {
+        "category": "records",
+        "subtitle": "player.spanner",
+        "sounds": [
+            {
+                "name": "groundworld:songs/spanner",
+                "stream": true
+            }
+        ]
+    },
+    "subway": {
+        "category": "records",
+        "subtitle": "player.subway",
+        "sounds": [
+            {
+                "name": "groundworld:songs/subway",
+                "stream": true
+            }
+        ]
+    },
+    "subway_unlock": {
+        "category": "records",
+        "subtitle": "player.subway_unlock",
+        "sounds": [
+            {
+                "name": "groundworld:songs/subway_unlock",
+                "stream": true
+            }
+        ]
+    }
+
+}

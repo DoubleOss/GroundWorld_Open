@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    " A ",
+    " B ",
+    " A "
+  ],
+  "key":
+  {
+    "A":
+    {
+      "item": "minecraft:stick",
+      "count": 1
+    },
+    "B":
+    {
+      "item": "minecraft:iron_ingot",
+      "count": 1
+    }
+
+  },
+  "result":
+  {
+    "item": "groundworld:antena",
+    "count": 1
+  }
+}

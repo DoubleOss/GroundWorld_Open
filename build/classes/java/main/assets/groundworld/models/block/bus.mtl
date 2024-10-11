@@ -1,0 +1,7 @@
+newmtl bus:m_9c8a41f8_cd59_230a_bba3_bcc102a7ab1b
+illum 4
+Kd 1.00 1.00 1.00
+Ka 0.40 0.40 0.40
+Tf 1.00 1.00 1.00
+map_Kd groundworld:blocks/bus
+Ni 1.00

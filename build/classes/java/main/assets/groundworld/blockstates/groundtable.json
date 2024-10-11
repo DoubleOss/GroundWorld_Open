@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "facing=north": {
+      "y": 0,
+      "model": "groundworld:groundtable"
+    },
+    "facing=south": {
+      "y": 180,
+      "model": "groundworld:groundtable"
+    },
+    "facing=east": {
+      "y": 90,
+      "model": "groundworld:groundtable"
+    },
+    "facing=west": {
+      "y": 270,
+      "model": "groundworld:groundtable"
+    },
+    "facing=up": {
+      "y": 0,
+      "model": "groundworld:groundtable"
+    },
+    "facing=down": {
+      "y": 0,
+      "model": "groundworld:groundtable"
+    }
+  }
+}

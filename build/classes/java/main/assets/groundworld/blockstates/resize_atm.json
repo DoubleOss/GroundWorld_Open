@@ -1,0 +1,30 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "animals:resize_atm.obj"
+  },
+  "variants":
+  {
+    "normal": [{ "y": 0 }, { "y": 90 }, { "y": 180 }, { "y": 270 }],
+    "facing=north":
+    {
+      "model": "animals:resize_atm.obj",
+      "y": 0
+    },
+    "facing=east":
+    {
+      "model": "animals:resize_atm.obj",
+      "y": 90
+    },
+    "facing=south":
+    {
+      "model": "animals:resize_atm.obj",
+      "y": 180
+    },
+    "facing=west":
+    {
+      "model": "animals:resize_atm.obj",
+      "y": 270
+    }
+  }
+}

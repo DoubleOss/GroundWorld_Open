@@ -1,0 +1,7 @@
+{
+  "parent": "groundworld:block/subwayunlock",
+  "textures": {
+    "1": "groundworld:blocks/subwayunlock",
+    "particle": "groundworld:blocks/subwayunlock"
+  }
+}

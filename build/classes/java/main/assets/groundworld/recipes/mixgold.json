@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "   ",
+    "ABC",
+    "   "
+  ],
+  "key":
+  {
+    "A":
+    {
+      "item": "minecraft:iron_ingot",
+      "count": 1
+    },
+    "C":
+    {
+      "item": "groundworld:mixgold",
+      "count": 1
+    },
+    "B":
+    {
+      "item": "minecraft:gold_ingot",
+      "count": 1
+    }
+
+  },
+  "result":
+  {
+    "item": "groundworld:mixgold",
+    "count": 1
+  }
+}

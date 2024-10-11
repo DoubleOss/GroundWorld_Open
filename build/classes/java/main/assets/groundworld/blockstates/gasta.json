@@ -1,0 +1,25 @@
+{
+	"variants":
+	{
+		"facing=north":
+		{
+			"model": "groundworld:gasta",
+			"y": 180
+		},
+		"facing=east":
+		{
+			"model": "groundworld:gasta",
+			"y": 270
+		},
+		"facing=south":
+		{
+			"model": "groundworld:gasta",
+			"y": 0
+		},
+		"facing=west":
+		{
+			"model": "groundworld:gasta",
+			"y": 90
+		}
+	}
+}

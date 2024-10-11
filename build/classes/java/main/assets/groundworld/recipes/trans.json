@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "ABA",
+    "ACA",
+    "ADA"
+  ],
+  "key":
+  {
+    "A":
+    {
+      "item": "groundworld:mixgold",
+      "count": 1
+    },
+    "B":
+    {
+      "item": "groundworld:robot_core",
+      "count": 1
+    },
+    "C":
+    {
+      "item": "groundworld:gear",
+      "count": 1
+    },
+    "D":
+    {
+      "item": "groundworld:oil",
+      "count": 1
+    }
+    
+  },
+  "result":
+  {
+    "item": "groundworld:trans",
+    "count": 1
+  }
+}

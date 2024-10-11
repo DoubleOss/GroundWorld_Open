@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "   ",
+    " A ",
+    " B "
+  ],
+  "key":
+  {
+    "A":
+    {
+      "item": "groundworld:antena",
+      "count": 1
+    },
+    "B":
+    {
+      "item": "groundworld:phone",
+      "count": 1
+    }
+
+  },
+  "result":
+  {
+    "item": "groundworld:phonew_ant",
+    "count": 1
+  }
+}

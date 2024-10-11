@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "A A",
+    " B ",
+    " B "
+  ],
+  "key":
+  {
+    "A":
+    {
+      "item": "minecraft:iron_ingot",
+      "count": 1
+    },
+    "B":
+    {
+      "item": "groundworld:aluminum",
+      "count": 1
+    }
+
+  },
+  "result":
+  {
+    "item": "groundworld:spanner",
+    "count": 1
+  }
+}

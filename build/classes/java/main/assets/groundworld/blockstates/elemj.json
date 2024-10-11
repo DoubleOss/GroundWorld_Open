@@ -1,0 +1,25 @@
+{
+	"variants":
+	{
+		"facing=north":
+		{
+			"model": "groundworld:elemj",
+			"y": 180
+		},
+		"facing=east":
+		{
+			"model": "groundworld:elemj",
+			"y": 270
+		},
+		"facing=south":
+		{
+			"model": "groundworld:elemj",
+			"y": 0
+		},
+		"facing=west":
+		{
+			"model": "groundworld:elemj",
+			"y": 90
+		}
+	}
+}

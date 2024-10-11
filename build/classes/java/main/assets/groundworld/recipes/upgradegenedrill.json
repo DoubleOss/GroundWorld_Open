@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "ACA",
+    "ABA",
+    "ADA"
+  ],
+  "key":
+  {
+    "A":
+    {
+      "item": "minecraft:diamond",
+      "count": 1
+    },
+    "B":
+    {
+      "item": "groundworld:genedrill",
+      "count": 1
+    },
+    "C":
+    {
+      "item": "groundworld:gear",
+      "count": 1
+    },
+    "D":
+    {
+      "item": "minecraft:emerald",
+      "count": 1
+    }
+  
+  },
+  "result":
+  {
+    "item": "groundworld:upgradegenedrill",
+    "count": 1
+  }
+}

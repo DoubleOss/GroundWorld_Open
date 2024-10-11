@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "A A",
+    "A A",
+    " A "
+  ],
+  "key":
+  {
+    "A":
+    {
+      "item": "groundworld:plastic",
+      "count": 1
+    }
+  },
+  "result":
+  {
+    "item": "groundworld:oil",
+    "count": 1
+  }
+}

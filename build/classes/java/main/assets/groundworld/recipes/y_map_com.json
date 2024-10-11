@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "   ",
+    "ABC",
+    "   "
+  ],
+  "key":
+  {
+    "A":
+    {
+      "item": "groundworld:y_map1",
+      "count": 1
+    },
+    "B":
+    {
+      "item": "groundworld:y_map2",
+      "count": 1
+    },
+    "C":
+    {
+      "item": "groundworld:y_map3",
+      "count": 1
+    }
+
+  },
+  "result":
+  {
+    "item": "groundworld:y_map_com",
+    "count": 1
+  }
+}

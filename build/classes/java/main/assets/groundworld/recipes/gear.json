@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    " A ",
+    "A A",
+    " A "
+  ],
+  "key":
+  {
+    "A":
+    {
+      "item": "groundworld:aluminum",
+      "count": 1
+    }
+  },
+  "result":
+  {
+    "item": "groundworld:gear",
+    "count": 1
+  }
+}

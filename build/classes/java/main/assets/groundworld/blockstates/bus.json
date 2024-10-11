@@ -1,0 +1,30 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "groundworld:bus.obj"
+  },
+  "variants":
+  {
+    "normal": [{ "y": 0 }, { "y": 90 }, { "y": 180 }, { "y": 270 }],
+    "facing=north":
+    {
+      "model": "groundworld:bus.obj",
+      "y": 0
+    },
+    "facing=east":
+    {
+      "model": "groundworld:bus.obj",
+      "y": 90
+    },
+    "facing=south":
+    {
+      "model": "groundworld:bus.obj",
+      "y": 180
+    },
+    "facing=west":
+    {
+      "model": "groundworld:bus.obj",
+      "y": 270
+    }
+  }
+}

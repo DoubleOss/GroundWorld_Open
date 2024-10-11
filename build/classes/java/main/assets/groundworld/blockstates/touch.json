@@ -1,0 +1,25 @@
+{
+	"variants":
+	{
+		"facing=north":
+		{
+			"model": "groundworld:touch",
+			"y": 180
+		},
+		"facing=east":
+		{
+			"model": "groundworld:touch",
+			"y": 270
+		},
+		"facing=south":
+		{
+			"model": "groundworld:touch",
+			"y": 0
+		},
+		"facing=west":
+		{
+			"model": "groundworld:touch",
+			"y": 90
+		}
+	}
+}

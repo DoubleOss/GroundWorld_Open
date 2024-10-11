@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    " C ",
+    " B ",
+    " A "
+  ],
+  "key":
+  {
+    "A":
+    {
+      "item": "minecraft:stick",
+      "count": 1
+    },
+    "B":
+    {
+      "item": "groundworld:cloth",
+      "count": 1
+    },
+    "C":
+    {
+      "item": "minecraft:reeds",
+      "count": 1
+    }
+
+  },
+  "result":
+  {
+    "item": "groundworld:touch",
+    "count": 1
+  }
+}

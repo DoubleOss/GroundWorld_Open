@@ -1,0 +1,25 @@
+{
+	"variants":
+	{
+		"facing=north":
+		{
+			"model": "groundworld:skull_2",
+			"y": 180
+		},
+		"facing=east":
+		{
+			"model": "groundworld:skull_2",
+			"y": 270
+		},
+		"facing=south":
+		{
+			"model": "groundworld:skull_2",
+			"y": 0
+		},
+		"facing=west":
+		{
+			"model": "groundworld:skull_2",
+			"y": 90
+		}
+	}
+}

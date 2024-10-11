@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "AAA",
+    " B ",
+    " C "
+  ],
+  "key":
+  {
+    "A":
+    {
+      "item": "minecraft:gold_ingot",
+      "count": 1
+    },
+    "C":
+    {
+      "item": "minecraft:stick",
+      "count": 1
+    },
+    "B":
+    {
+      "item": "minecraft:iron_ingot",
+      "count": 1
+    }
+
+  },
+  "result":
+  {
+    "item": "groundworld:genedrill",
+    "count": 1
+  }
+}
