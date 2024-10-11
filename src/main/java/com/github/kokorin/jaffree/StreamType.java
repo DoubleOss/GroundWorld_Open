@@ -1,0 +1,52 @@
+/*
+ *    Copyright  2017 Denis Kokorin
+ *
+ *    Licensed under the Apache License, Version 2.0 (the "License");
+ *    you may not use this file except in compliance with the License.
+ *    You may obtain a copy of the License at
+ *
+ *        http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *    Unless required by applicable law or agreed to in writing, software
+ *    distributed under the License is distributed on an "AS IS" BASIS,
+ *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *    See the License for the specific language governing permissions and
+ *    limitations under the License.
+ *
+ */
+
+package com.github.kokorin.jaffree;
+
+/**
+ * Represents media types known by ffmpeg/ffprobe.
+ */
+//TODO rename to MediaType, StreamType should not be removed,
+// instead StreamType.VIDEO = MediaType.VIDEO for backward compatibility
+public enum StreamType {
+    /**
+     * Matches all video streams.
+     */
+    VIDEO("v"),
+
+    /**
+     * Only matches video streams which are not attached pictures.
+     */
+    VIDEO_NOT_PICTURE("V"),
+    AUDIO("a"),
+    SUBTITLE("s"),
+    DATA("d"),
+    ATTACHMENT("t");
+
+    private String code;
+
+    StreamType(final String code) {
+        this.code = code;
+    }
+
+    /**
+     * @return stream type code
+     */
+    public String code() {
+        return code;
+    }
+}
