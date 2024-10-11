@@ -13,13 +13,13 @@
 > (https://youtu.be/4PT_Dvr42-Y)
 
 
-## 👨🏻‍💻│기능 구현
-###   1. 동영상 재생을 위한 라이브러리 연결
-###   2. 외부 Sound 라이브러리 연결
-###   3. HUD 시스템
-###   4. 상점 시스템
-###   5. 스마트폰 시스템
-###   6. 지하철 시스템
+## 👨🏻‍💻│기능 구현 목차
+###   1. [동영상 재생을 위한 라이브러리 연결](https://github.com/DoubleOss/GroundWorld_Open?tab=readme-ov-file#1-%EB%A7%88%EC%9D%B8%ED%81%AC%EB%9E%98%ED%94%84%ED%8A%B8-%EB%8F%99%EC%98%81%EC%83%81-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC-%EC%97%B0%EA%B2%B0)
+###   2. [외부 Sound 라이브러리 연결](https://github.com/DoubleOss/GroundWorld_Open?tab=readme-ov-file#2-%EB%A7%88%EC%9D%B8%ED%81%AC%EB%9E%98%ED%94%84%ED%8A%B8-tinysound-lib-%EC%97%B0%EB%8F%99)
+###   3. [HUD 시스템](https://github.com/DoubleOss/GroundWorld_Open?tab=readme-ov-file#3-hud-%EC%8B%9C%EC%8A%A4%ED%85%9C-1)
+###   4. [상점 시스템](https://github.com/DoubleOss/GroundWorld_Open?tab=readme-ov-file#4-%EC%83%81%EC%A0%90-%EC%8B%9C%EC%8A%A4%ED%85%9C-1)
+###   5. [스마트폰 시스템](https://github.com/DoubleOss/GroundWorld_Open?tab=readme-ov-file#5-%EC%8A%A4%EB%A7%88%ED%8A%B8%ED%8F%B0-%EC%8B%9C%EC%8A%A4%ED%85%9C-1)
+###   6. [지하철 시스템](https://github.com/DoubleOss/GroundWorld_Open?tab=readme-ov-file#6-%EC%A7%80%ED%95%98%EC%B2%A0-%EC%8B%9C%EC%8A%A4%ED%85%9C-1)
 
 ***
 
@@ -28,16 +28,18 @@
 > * ### 마인크래프트 내에서 동영상 재생 기능 추가
 > * #### 활용예시
 > ![2024-10-11 22;27;03](https://github.com/user-attachments/assets/8f02df60-ec38-4bb1-bf8b-69bd4c773fb9)
-> ### 동영상 FFmpeg 라이브러리 사용 코드
-> ### Gui 동영상 코드
+> ## 🔗 코드 링크
+> * ### [초기 필요 파일 인게임 다운로드 설치 기능](https://github.com/DoubleOss/GroundWorld_Open/blob/main/src/main/java/com/doubleos/gw/proxy/ClientProxy.java#L614)
+> * ### [동영상 FFmpeg 라이브러리 사용 코드](https://github.com/DoubleOss/GroundWorld_Open/blob/main/src/main/java/com/doubleos/gw/media/MCMediaPlayer.java)
+> * ### [Gui 내 동영상 코드](https://github.com/DoubleOss/GroundWorld_Open/blob/main/src/main/java/com/doubleos/gw/gui/VideoGui.java#L63)
 
 ### 2. 마인크래프트 TinySound Lib 연동
 > * ### 마인크래프트 자체 Sound 재생 시스템의 오류로 인한 문제 해결
 > * ### 높은 Sound 반복 재생시 HashBiMap에서 중복 값 삽입 문제
 > * ### Client 에서만 처리되도록 ClientSide > TinySound Init
-> 
-> ### TinySound Init 코드
-> ### TinySound Lib 사용 코드
+> ## 🔗 코드 링크
+> * ### [TinySound Init 코드](https://github.com/DoubleOss/GroundWorld_Open/blob/main/src/main/java/com/doubleos/gw/proxy/ClientProxy.java#L525)
+> * ### [TinySound Lib 사용 코드](https://github.com/DoubleOss/GroundWorld_Open/blob/main/src/main/java/com/doubleos/gw/proxy/ClientProxy.java#L800)
 
 
 ### 3. HUD 시스템 
@@ -50,9 +52,10 @@
 > #### RayCast 연산, 유효 오브젝트시 HUD 메세지 검출 
 > ![crosshair](https://github.com/user-attachments/assets/7b297c3a-a9af-48ea-9e31-0a563a89a0bf)
 > * * *
-> ### HUD Render 코드 링크
-> ### Raycast 검출 코드 링크
-> ### OpenGL drawTexture 함수 링크
+> ## 🔗 코드 링크
+> * ### [HUD Render 코드 링크](https://github.com/DoubleOss/GroundWorld_Open/blob/main/src/main/java/com/doubleos/gw/proxy/ClientProxy.java#L1553)
+> * ### [Raycast 검출 코드 링크](https://github.com/DoubleOss/GroundWorld_Open/blob/main/src/main/java/com/doubleos/gw/proxy/ClientProxy.java#L232)
+> * ### [OpenGL drawTexture 함수 링크](https://github.com/DoubleOss/GroundWorld_Open/blob/main/src/main/java/com/doubleos/gw/proxy/ClientProxy.java#L2245)
  
 
 
@@ -62,10 +65,12 @@
 > * ### 구매 판매 탭 표기 및 가격 변동
 > * ### OpenGL SCISSOR 기능을 이용한 Scroll Bar 구현
 > ![2024-10-11 21;14;31](https://github.com/user-attachments/assets/68676eba-4e58-4db6-9089-8e6524472dbd)
-> ### 상점 Gui 코드 링크
-> ### 상점 데이터 코드 링크 
-> ### 상점 Server와 유저간 데이터 Sync 코드 링크
-> ### OpenGL SCISSOR Scroll Bar 코드
+> * * *
+> ## 🔗 코드 링크
+> ### [상점 Gui 코드 링크](https://github.com/DoubleOss/GroundWorld_Open/blob/main/src/main/java/com/doubleos/gw/gui/GuiShop.java#L346)
+> ### [상점 데이터 코드 링크](https://github.com/DoubleOss/GroundWorld_Open/blob/main/src/main/java/com/doubleos/gw/variable/Variable.java#L357)
+> ### [상점 Server와 유저간 데이터 Sync 코드 링크](https://github.com/DoubleOss/GroundWorld_Open/blob/main/src/main/java/com/doubleos/gw/packet/SPacketShopDataItemRemove.java)
+> ### [OpenGL SCISSOR Scroll Bar 코드](https://github.com/DoubleOss/GroundWorld_Open/blob/main/src/main/java/com/doubleos/gw/gui/GuiShop.java#L713)
 
 * * *
 
@@ -79,14 +84,13 @@
 > * * *
 > #### 통화 시스템 영상
 > ![2024-10-11 22;07;57](https://github.com/user-attachments/assets/bdd4309e-4d5d-451a-a9f0-43f0310789dc)
-> * * *
 > #### 긴급 공지 시스템 영상
 > ![2024-10-11 22;55;26](https://github.com/user-attachments/assets/b2ed55bd-b32d-40b6-b4c4-1242b8888f7e)
-> ### 긴급 공지 시스템 코드
-> * * *
 > #### 갤러리 시스템
 > ![2024-10-11 23;02;42](https://github.com/user-attachments/assets/d943213f-e6da-4df0-b7ed-195b95e4707a)
-> ### 갤러리 시스템 코드
+> ## 🔗 코드 링크
+> ### [갤러리 시스템 코드](https://github.com/DoubleOss/GroundWorld_Open/blob/main/src/main/java/com/doubleos/gw/gui/GuiPhone.java#L1824)
+> ### [긴급 공지 시스템 코드](https://github.com/DoubleOss/GroundWorld_Open/blob/main/src/main/java/com/doubleos/gw/gui/GuiPhone.java#L1923)
 
 
 
@@ -96,7 +100,7 @@
 >
 > (https://youtu.be/FGVWafqkUMY)
 > 
-> ### 지하철 탑승 Gui 코드
-> ### 지하철 엔티티 소환 코드
+> ### [지하철 탑승 Gui 코드](https://github.com/DoubleOss/GroundWorld_Open/blob/main/src/main/java/com/doubleos/gw/gui/GuiSubway.java)
+> ### [지하철 엔티티 코드](https://github.com/DoubleOss/GroundWorld_Open/blob/main/src/main/java/com/doubleos/gw/entity/EntitySubWay.java)
 
 
