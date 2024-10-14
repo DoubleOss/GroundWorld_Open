@@ -16,7 +16,7 @@
 ## 👨🏻‍💻│기능 구현 목차
 ###   1. [동영상 재생을 위한 라이브러리 연결](https://github.com/DoubleOss/GroundWorld_Open?tab=readme-ov-file#1-%EB%A7%88%EC%9D%B8%ED%81%AC%EB%9E%98%ED%94%84%ED%8A%B8-%EB%8F%99%EC%98%81%EC%83%81-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC-%EC%97%B0%EA%B2%B0)
 ###   2. [외부 Sound 라이브러리 연결](https://github.com/DoubleOss/GroundWorld_Open?tab=readme-ov-file#2-%EB%A7%88%EC%9D%B8%ED%81%AC%EB%9E%98%ED%94%84%ED%8A%B8-tinysound-lib-%EC%97%B0%EB%8F%99)
-###   3. [아이템 등록 과정 반 자동화]()
+###   3. [아이템 등록 과정 반 자동화](https://github.com/DoubleOss/GroundWorld_Open/tree/main?tab=readme-ov-file#3-%EB%A7%88%EC%9D%B8%ED%81%AC%EB%9E%98%ED%94%84%ED%8A%B8-%EC%95%84%EC%9D%B4%ED%85%9C-%EC%B6%94%EA%B0%80%EB%A5%BC-%EC%9C%84%ED%95%9C-%EB%93%B1%EB%A1%9D%EA%B3%BC%EC%A0%95-%EA%B0%84%EC%86%8C%ED%99%94)
 ###   4. [HUD 시스템](https://github.com/DoubleOss/GroundWorld_Open?tab=readme-ov-file#3-hud-%EC%8B%9C%EC%8A%A4%ED%85%9C-1)
 ###   5. [상점 시스템](https://github.com/DoubleOss/GroundWorld_Open?tab=readme-ov-file#4-%EC%83%81%EC%A0%90-%EC%8B%9C%EC%8A%A4%ED%85%9C-1)
 ###   6. [스마트폰 시스템](https://github.com/DoubleOss/GroundWorld_Open?tab=readme-ov-file#5-%EC%8A%A4%EB%A7%88%ED%8A%B8%ED%8F%B0-%EC%8B%9C%EC%8A%A4%ED%85%9C-1)
