@@ -333,8 +333,6 @@ public class Variable
 
 
 
-
-
         /*
         m_mailDataList.add(new MailData(mailData++, "긴급 서버 점검 보상안",
                 "안녕하세요 미정팀입니다. /n먼저 지상세계 콘텐츠를 기대해 주시고 /n기다려 주신 모든 시청자 분들께 감사드립니다./n /n금일 콘텐츠 첫 오픈 후 저희가 예상했던 것보다 " +

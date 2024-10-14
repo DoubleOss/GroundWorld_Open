@@ -170,6 +170,7 @@ public class GroundWorld
     public void init(FMLInitializationEvent event)
     {
         // some example code
+
         proxy.init(event);
         GwSoundHandler.registerSounds();
         logger.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
@@ -188,7 +189,7 @@ public class GroundWorld
             }
 
         }
-        //init();
+        init();
 
     }
 
@@ -206,13 +207,31 @@ public class GroundWorld
         event.registerServerCommand(new GuiCommand());
         //HudConfig.init(event.getServer().getFile(""));
 
+
     }
 
+    
+    //아이템 등록 자동화
+    //아이템 기존 등록 과정
+    //1. ModItems.class 에 아이템 이름과 클래스 선언 
+    // 리소스에 item 텍스쳐 연결을 위한 json 파일 생성 후 텍스쳐 경로 연결
+    //이후 아이템 이름 변경을 위해 lang 파일 작성
+
+    /*      자동화
+    1. ModItems 에 한글 이름 + 영문 이름 같이 기입
+    2. texture/item 에 텍스쳐 저장
+    3. init 함수 실행시 ModItems 에 있는 리스트 에 등록된 아이템들이 전부 lang 파일에 자동 저장 및 texture 파일 연결을 위한 json 자동 생성 [ 덮어쓰기 방지 ]
+     
+     */
     void init()
     {
 
+        File langFileLoc = new File("./../src/main/resources/assets/"+Reference.MODID+"/lang"); //언어파일 위치
+        File itemJson = new File("./../src/main/resources/assets/"+Reference.MODID+"/models/item"); //itemJson
+
         try {
-            FileWriter usFw = new FileWriter("F:\\마인크래프트 코딩\\마인크래프트 모딩\\미정팀\\GroundWorld\\parseJson\\en_us.lang");
+            FileWriter usFw = new FileWriter(langFileLoc+"/en_us.lang");
+            //FileWriter usFw = new FileWriter(langFileLoc);
 
             int i = 0;
             for(Item item: ModItems.ITEMS)
@@ -238,7 +257,8 @@ public class GroundWorld
         }
         try
         {
-            FileWriter koFw = new FileWriter("F:\\마인크래프트 코딩\\마인크래프트 모딩\\미정팀\\GroundWorld\\parseJson\\ko_kr.lang");
+            FileWriter koFw = new FileWriter(langFileLoc+"/ko_kr.lang");
+
             int i = 0;
             for(Item item: ModItems.ITEMS)
             {
@@ -274,12 +294,19 @@ public class GroundWorld
 
             jsonObject.add("textures", jsonObject2);
 
-            System.out.println(jsonObject.toString());
+
             try {
-                FileWriter fw = new FileWriter("F:\\마인크래프트 코딩\\마인크래프트 모딩\\미정팀\\GroundWorld\\parseJson\\"+itemName+".json");
-                gson.toJson(jsonObject, fw);
-                fw.flush();
-                fw.close();
+                File existFile = new File(itemJson+"/"+itemName+".json"); // 파일 덮어쓰기 방지
+                if(! existFile.isFile())
+                {
+                    FileWriter fw = new FileWriter(existFile);
+
+                    gson.toJson(jsonObject, fw);
+                    fw.flush();
+                    fw.close();
+
+                }
+
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
