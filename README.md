@@ -16,10 +16,11 @@
 ## 👨🏻‍💻│기능 구현 목차
 ###   1. [동영상 재생을 위한 라이브러리 연결](https://github.com/DoubleOss/GroundWorld_Open?tab=readme-ov-file#1-%EB%A7%88%EC%9D%B8%ED%81%AC%EB%9E%98%ED%94%84%ED%8A%B8-%EB%8F%99%EC%98%81%EC%83%81-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC-%EC%97%B0%EA%B2%B0)
 ###   2. [외부 Sound 라이브러리 연결](https://github.com/DoubleOss/GroundWorld_Open?tab=readme-ov-file#2-%EB%A7%88%EC%9D%B8%ED%81%AC%EB%9E%98%ED%94%84%ED%8A%B8-tinysound-lib-%EC%97%B0%EB%8F%99)
-###   3. [HUD 시스템](https://github.com/DoubleOss/GroundWorld_Open?tab=readme-ov-file#3-hud-%EC%8B%9C%EC%8A%A4%ED%85%9C-1)
-###   4. [상점 시스템](https://github.com/DoubleOss/GroundWorld_Open?tab=readme-ov-file#4-%EC%83%81%EC%A0%90-%EC%8B%9C%EC%8A%A4%ED%85%9C-1)
-###   5. [스마트폰 시스템](https://github.com/DoubleOss/GroundWorld_Open?tab=readme-ov-file#5-%EC%8A%A4%EB%A7%88%ED%8A%B8%ED%8F%B0-%EC%8B%9C%EC%8A%A4%ED%85%9C-1)
-###   6. [지하철 시스템](https://github.com/DoubleOss/GroundWorld_Open?tab=readme-ov-file#6-%EC%A7%80%ED%95%98%EC%B2%A0-%EC%8B%9C%EC%8A%A4%ED%85%9C-1)
+###   3. [아이템 등록 과정 반 자동화]()
+###   4. [HUD 시스템](https://github.com/DoubleOss/GroundWorld_Open?tab=readme-ov-file#3-hud-%EC%8B%9C%EC%8A%A4%ED%85%9C-1)
+###   5. [상점 시스템](https://github.com/DoubleOss/GroundWorld_Open?tab=readme-ov-file#4-%EC%83%81%EC%A0%90-%EC%8B%9C%EC%8A%A4%ED%85%9C-1)
+###   6. [스마트폰 시스템](https://github.com/DoubleOss/GroundWorld_Open?tab=readme-ov-file#5-%EC%8A%A4%EB%A7%88%ED%8A%B8%ED%8F%B0-%EC%8B%9C%EC%8A%A4%ED%85%9C-1)
+###   7. [지하철 시스템](https://github.com/DoubleOss/GroundWorld_Open?tab=readme-ov-file#6-%EC%A7%80%ED%95%98%EC%B2%A0-%EC%8B%9C%EC%8A%A4%ED%85%9C-1)
 
 ***
 
@@ -42,7 +43,17 @@
 > * ### [TinySound Lib 사용 코드](https://github.com/DoubleOss/GroundWorld_Open/blob/main/src/main/java/com/doubleos/gw/proxy/ClientProxy.java#L800)
 
 
-### 3. HUD 시스템 
+
+### 3. 마인크래프트 아이템 추가를 위한 등록과정 간소화
+> * ### 아이템 추가를 위해 lang 언어파일 + 텍스쳐 연결을 위한 json 파일 작성의 불편함을 없애기 위한 작업
+> * ### init 함수 마인크래프트 실행시 자동으로 텍스쳐 체크 후 json 파일 작성
+> * ### 아이템 추가를 위한 모드 제작 첫 단계에서 생성 진행 이후 함수 주석으로 차단 해야함
+> ## 🔗 코드 링크
+> * ### [Item Json Auto Create File](https://github.com/DoubleOss/GroundWorld_Open/blob/main/src/main/java/com/doubleos/gw/GroundWorld.java#L214)
+
+
+
+### 4. HUD 시스템 
 > * ### 플레이어의 실시간 스텟 [ 체력, 체온, 허기, 수분 ] 실시간 표기 
 > * ### 배터리, 통화 시스템, 타이머 연동
 > * ### OpenGL을 이용한 2D Texture Render
@@ -60,7 +71,7 @@
 
 
 
-### 4. 상점 시스템
+### 5. 상점 시스템
 > * ### 상점 판매 아이템 수량 제한 스크롤 기능, 수량에 따른 표기 변경
 > * ### 구매 판매 탭 표기 및 가격 변동
 > * ### OpenGL SCISSOR 기능을 이용한 Scroll Bar 구현
@@ -74,7 +85,7 @@
 
 * * *
 
-### 5. 스마트폰 시스템 
+### 6. 스마트폰 시스템 
 > * ### 통화 시스템: 1:1 개인 통화, 안테나 + 배터리가 있어야 스마트폰 사용 가능 
 > * ### 스마트폰 상점 시스템 
 > * ### 긴급 공지 시스템: 일차별 공지, 실시간 운영자 공지 받는 메일함
@@ -94,7 +105,7 @@
 
 
 
-### 6. 지하철 시스템
+### 7. 지하철 시스템
 > ### 지하철 시스템 영상
 > ![Video Label](http://img.youtube.com/vi/FGVWafqkUMY/0.jpg)
 >
